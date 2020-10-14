@@ -69,13 +69,13 @@
                 numbers {
 // -----------------------------------------------------------------------------------------
 // |     |  [{ |  7  |  8  |  9  |  ]}  | # |     |     |      |      |     |     |
-// |     |  -_ |  4  |  5  |  6  |  +=  | # |     | SFT | CTRL | LALT | WIN |     |
+// |     |  -_ |  4  |  5  |  6  |  =+  | # |     | SFT | CTRL | LALT | WIN |     |
 // |     |  #~ |  1  |  2  |  3  |  \|  | # |     |     |      | RALT |     |     | 
 //                   |  .  |  0  | LSFT | # | WIN |     |      |
 
                         bindings = <
    &trans    &kc LBKT  &kc NUM_7    &kc NUM_8    &kc NUM_9    &kc RBKT      &trans    &trans   &trans    &trans    &trans    &trans    
-   &trans    &kc MINUS &kc NUM_4    &kc NUM_5    &kc NUM_6    &kc PLUS      &trans    &kp LSFT  &kp LCTL &kp LALT  &kp GUI   &trans
+   &trans    &kc MINUS &kc NUM_4    &kc NUM_5    &kc NUM_6    &kc EQL      &trans    &kp LSFT  &kp LCTL &kp LALT  &kp GUI   &trans
    &trans    &trans    &kc NUM_1    &kc NUM_2    &kc NUM_3    &kc BSLH      &trans    &trans   &kp RALT  &trans    &trans    &trans    
                                     &kp DOT      &NUM_0       &kp LSFT      &kp GUI   &trans   &trans
                         >;
