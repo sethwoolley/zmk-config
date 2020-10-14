@@ -74,10 +74,10 @@
 //                   |  .  |  0  | LSFT | # | WIN |     |      |
 
                         bindings = <
-   &trans    &kc LBKT  &kc NUM_7    &kc NUM_8    &kc NUM_9    &kc RBKT      &trans    &trans   &trans    &trans    &trans    &trans    
-   &trans    &kc MINUS &kc NUM_4    &kc NUM_5    &kc NUM_6    &kc EQL      &trans    &kp LSFT  &kp LCTL &kp LALT  &kp GUI   &trans
-   &trans    &trans    &kc NUM_1    &kc NUM_2    &kc NUM_3    &kc BSLH      &trans    &trans   &kp RALT  &trans    &trans    &trans    
-                                    &kp DOT      &kc NUM_0    &kp LSFT      &kp GUI   &trans   &trans
+   &trans    &kp LBKT  &kp NUM_7    &kp NUM_8    &kp NUM_9    &kp RBKT      &trans    &trans   &trans    &trans    &trans    &trans    
+   &trans    &kp MINUS &kp NUM_4    &kp NUM_5    &kp NUM_6    &kp EQL      &trans    &kp LSFT  &kp LCTL &kp LALT  &kp GUI   &trans
+   &trans    &trans    &kp NUM_1    &kp NUM_2    &kp NUM_3    &kp BSLH      &trans    &trans   &kp RALT  &trans    &trans    &trans    
+                                    &kp DOT      &kp NUM_0    &kp LSFT      &kp GUI   &trans   &trans
                         >;
                 };
 
@@ -89,9 +89,9 @@
 //                     |      |      |  TAB  | # | WIN |     |      |
 
                         bindings = <
-   &trans    &kc F12    &kc F7    &kc F8    &kc F9    &kc PRSC      &trans    &trans   &trans    &trans    &trans    &trans    
-   &trans    &kc F11    &kc F4    &kc F5    &kc F6    &trans        &trans    &kp LSFT &kp LCTL  &kp LALT  &kp GUI   &trans
-   &trans    &kc F10    &kc F1    &kc F2    &kc F3    &trans        &trans    &trans   &kp RALT  &trans    &trans    &trans    
+   &trans    &kp F12    &kp F7    &kp F8    &kp F9    &kp PRSC      &trans    &trans   &trans    &trans    &trans    &trans    
+   &trans    &kp F11    &kp F4    &kp F5    &kp F6    &trans        &trans    &kp LSFT &kp LCTL  &kp LALT  &kp GUI   &trans
+   &trans    &kp F10    &kp F1    &kp F2    &kp F3    &trans        &trans    &trans   &kp RALT  &trans    &trans    &trans    
                                   &trans    &trans    &kp LSFT      &kp GUI   &trans   &trans
                         >;
                 };
