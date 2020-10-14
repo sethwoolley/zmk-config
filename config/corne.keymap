@@ -18,7 +18,7 @@
 // |  F1 |  Q    |  W     |  F     |  P      |  G  | # |  J  |  L   |  U  |  Y  |  ;  |  F4   |
 // |  F2 | A/GUI | R/LALT | S/LCTL | T/LSFT  |  D  | # |  H  |  N   |  E  |  I  |  O  | ENTER |
 // |  F3 |  Z    |  X     |  C     |  V      |  B  | # |  N  |  M   |  ,  |  .  |  /  |  F5   |
-//     | LT Media ESC | MO Navi | LSFT | # | SPC | LT Num BKSP  | LT Fnc DEL |
+//                 | LT Media ESC | MO Navi | LSFT | # | SPC | LT Num BKSP  | LT Fnc DEL |
 
                         bindings = <
    &kp F1  &kp Q         &kp W          &kp E          &kp P          &kp G   &kp J &kp L           &kp U             &kp Y            &kp SCLN         &kp F4
