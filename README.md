@@ -7,4 +7,5 @@ It modifies miryoku in that it removes the dedicated layer for mouse movements a
 # Resources
 
 https://github.com/zmkfirmware/zmk
+
 https://github.com/foostan/crkbd
