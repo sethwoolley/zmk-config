@@ -8,6 +8,11 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define default_layer 0
+#define Navi 1
+#define Media 2
+#define Num 3
+
 / {
         keymap {
                 compatible = "zmk,keymap";
@@ -75,10 +80,10 @@
 
                 Fnc {
 // -----------------------------------------------------------------------------------------
-// |     |  F12 |  F7  |  F8  |  F9  | PTSRN |   |     |     |      |      |     |     |
-// |     |  F11 |  F4  |  F5  |  F6  | SCRLL |   |     | SFT | CTRL | LALT | WIN |     |
-// |     |  F10 |  F1  |  F2  |  F3  | PAUSE |   |     |     |      | RALT |     |     | 
-//                     |      |      |  TAB  |   | WIN |     |      |
+// |     |  F12 |  F7  |  F8  |  F9  | PTSRN | # |     |     |      |      |     |     |
+// |     |  F11 |  F4  |  F5  |  F6  | SCRLL | # |     | SFT | CTRL | LALT | WIN |     |
+// |     |  F10 |  F1  |  F2  |  F3  | PAUSE | # |     |     |      | RALT |     |     | 
+//                     |      |      |  TAB  | # | WIN |     |      |
 //
 // TODO
                         bindings = <
