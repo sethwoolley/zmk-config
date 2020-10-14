@@ -92,7 +92,7 @@
    &trans    &kc F12    &kc F7    &kc F8    &kc F9    &kc PRSC      &trans    &trans   &trans    &trans    &trans    &trans    
    &trans    &kc F11    &kc F4    &kc F5    &kc F6    &trans        &trans    &kp LSFT &kp LCTL  &kp LALT  &kp GUI   &trans
    &trans    &kc F10    &kc F1    &kc F2    &kc F3    &trans        &trans    &trans   &kp RALT  &trans    &trans    &trans    
-                                  &kp DOT   &NUM_0    &kp LSFT      &kp GUI   &trans   &trans
+                                  &trans    &trans    &kp LSFT      &kp GUI   &trans   &trans
                         >;
                 };
         };
