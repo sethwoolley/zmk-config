@@ -9,9 +9,10 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define default_layer 0
-#define Navi 1
-#define Media 2
-#define Num 3
+#define NAVI 1
+#define MEDIA 2
+#define NUM 3
+#define FUNC 4
 
 / {
         keymap {
@@ -23,17 +24,17 @@
 // |  F1 |  Q    |  W     |  F     |  P      |  G  | # |  J  |  L   |  U  |  Y  |  ;  |  F4   |
 // |  F2 | A/GUI | R/LALT | S/LCTL | T/LSFT  |  D  | # |  H  |  N   |  E  |  I  |  O  | ENTER |
 // |  F3 |  Z    |  X     |  C     |  V      |  B  | # |  N  |  M   |  ,  |  .  |  /  |  F5   |
-//                 | LT Media ESC | MO Navi | LSFT | # | SPC | LT Num BKSP  | LT Fnc DEL |
+//                 | LT MEDIA ESC | MO NAVI | LSFT | # | SPC | LT NUM BKSP  | LT FUNC DEL |
 
                         bindings = <
    &kp F1  &kp Q         &kp W          &kp E          &kp P          &kp G   &kp J &kp L           &kp U             &kp Y            &kp SCLN         &kp F4
    &kp F2  &th_bal GUI A &th_bal LALT R &th_bal LCTL S &th_bal LSFT T &kp D   &kp H &th_bal LSFT N  &th_bal LCTL E    &th_bal LALT I   &th_bal GUI O    &kp RET
    &kp F3  &kp Z         &kp X          &kp C          &kp V          &kp B   &kp N &kp M           &kp CMMA          &kp DOT          &kp FSLH         &kp F5
-                                               &lt Media ESC &mo 1 &kp LSFT   &kp SPC &lt Num BKSP 2 &lt Fnc DEL
+                                            &lt MEDIA ESC &mo NAVI &kp LSFT   &kp SPC &lt NUM BKSP 2 &lt FUNC DEL
                         >;
                 };
 
-                Navi {
+                navigation {
 // -----------------------------------------------------------------------------------------
 // |     |     |      |      |      |      | # | UNDO | CUT  | COPY  | PASTE |     |     |
 // |     | GUI | LALT | LCTL | LSFT | TAB  | # | LFT  | DWN  |  UP   |  RGT  |     |     |
@@ -48,7 +49,7 @@
                         >;
                 };
 
-                Media {
+                media_keys {
 // -----------------------------------------------------------------------------------------
 // |     |     |      |      |      |      | # |      |      |      |      |     |     |
 // |     | GUI | LALT | LCTL | LSFT | TAB  | # | PREV | VOLD | VOLU | NEXT |     |     |
@@ -62,7 +63,7 @@
                                    &trans     &trans     &kp LSFT      &cp M_STOP &cp M_PLAY &cp M_MUTE
                 };
 
-                Num {
+                numbers {
 // -----------------------------------------------------------------------------------------
 // |     |  [{ |  7  |  8  |  9  |  ]}  | # |     |     |      |      |     |     |
 // |     |  -_ |  4  |  5  |  6  |  +=  | # |     | SFT | CTRL | LALT | WIN |     |
@@ -78,7 +79,7 @@
                         >;
                 };
 
-                Fnc {
+                function_keys {
 // -----------------------------------------------------------------------------------------
 // |     |  F12 |  F7  |  F8  |  F9  | PTSRN | # |     |     |      |      |     |     |
 // |     |  F11 |  F4  |  F5  |  F6  | SCRLL | # |     | SFT | CTRL | LALT | WIN |     |
