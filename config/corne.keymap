@@ -14,6 +14,8 @@
 #define NUM 3
 #define FUNC 4
 
+#define NONE 0
+
 / {
         keymap {
                 compatible = "zmk,keymap";
@@ -27,10 +29,10 @@
 //                 | LT MEDIA ESC | MO NAVI | LSFT | # | SPC | LT NUM BKSP  | LT FUNC DEL |
 
                         bindings = <
-   &kp F1  &kp Q         &kp W          &kp E          &kp P          &kp G   &kp J &kp L           &kp U             &kp Y            &kp SCLN         &kp F4
-   &kp F2  &th_bal GUI A &th_bal LALT R &th_bal LCTL S &th_bal LSFT T &kp D   &kp H &th_bal LSFT N  &th_bal LCTL E    &th_bal LALT I   &th_bal GUI O    &kp RET
-   &kp F3  &kp Z         &kp X          &kp C          &kp V          &kp B   &kp N &kp M           &kp CMMA          &kp DOT          &kp FSLH         &kp F5
-                                            &lt MEDIA ESC &mo NAVI &kp LSFT   &kp SPC &lt NUM BKSP 2 &lt FUNC DEL
+   &kp F1  &kp Q         &kp W          &kp E          &kp P          &kp G         &kp J   &kp L           &kp U             &kp Y            &kp SCLN         &kp F4
+   &kp F2  &th_bal GUI A &th_bal LALT R &th_bal LCTL S &th_bal LSFT T &kp D         &kp H   &th_bal LSFT N  &th_bal LCTL E    &th_bal LALT I   &th_bal GUI O    &kp RET
+   &kp F3  &kp Z         &kp X          &kp C          &kp V          &kp B         &kp N   &kp M           &kp CMMA          &kp DOT          &kp FSLH         &kp F5
+                                        &lt MEDIA ESC  &mo NAVI       &kp LSFT      &kp SPC &lt NUM BKSP    &lt FUNC DEL
                         >;
                 };
 
@@ -69,13 +71,12 @@
 // |     |  -_ |  4  |  5  |  6  |  +=  | # |     | SFT | CTRL | LALT | WIN |     |
 // |     |  #~ |  1  |  2  |  3  |  \|  | # |     |     |      | RALT |     |     | 
 //                   |  .  |  0  | LSFT | # | WIN |     |      |
-//
-// TODO
+
                         bindings = <
    &trans    &kc LBKT  &kc NUM_7    &kc NUM_8    &kc NUM_9    &kc RBKT      &trans    &trans   &trans    &trans    &trans    &trans    
    &trans    &kc MINUS &kc NUM_4    &kc NUM_5    &kc NUM_6    &kc PLUS      &trans    &kp LSFT  &kp LCTL &kp LALT  &kp GUI   &trans
    &trans    &trans    &kc NUM_1    &kc NUM_2    &kc NUM_3    &kc BSLH      &trans    &trans   &kp RALT  &trans    &trans    &trans    
-                                             &kp DOT &NUM_0   &kp LSFT      &kp GUI   &trans   &trans
+                                    &kp DOT      &NUM_0       &kp LSFT      &kp GUI   &trans   &trans
                         >;
                 };
 
@@ -85,11 +86,10 @@
 // |     |  F11 |  F4  |  F5  |  F6  | SCRLL | # |     | SFT | CTRL | LALT | WIN |     |
 // |     |  F10 |  F1  |  F2  |  F3  | PAUSE | # |     |     |      | RALT |     |     | 
 //                     |      |      |  TAB  | # | WIN |     |      |
-//
-// TODO
+
                         bindings = <
    &trans    &kc F12    &kc F7    &kc F8    &kc F9    &kc PRSC      &trans    &trans   &trans    &trans    &trans    &trans    
-   &trans    &kc F11    &kc F4    &kc F5    &kc F6    &trans        &trans    &kp LSFT  &kp LCTL &kp LALT  &kp GUI   &trans
+   &trans    &kc F11    &kc F4    &kc F5    &kc F6    &trans        &trans    &kp LSFT &kp LCTL  &kp LALT  &kp GUI   &trans
    &trans    &kc F10    &kc F1    &kc F2    &kc F3    &trans        &trans    &trans   &kp RALT  &trans    &trans    &trans    
                                   &kp DOT   &NUM_0    &kp LSFT      &kp GUI   &trans   &trans
                         >;
