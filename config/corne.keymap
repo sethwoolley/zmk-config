@@ -16,85 +16,97 @@
 
 #define NONE 0
 
-/ {
-        keymap {
-                compatible = "zmk,keymap";
 
-                default_layer {
-// Uses th_bal for homerow modifier keys at it seemed the best option
+/ {
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping_term_ms = <120>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
 // -----------------------------------------------------------------------------------------
 // |  F1 |  Q    |  W     |  F     |  P      |   G  | # |  J  |  L   |  U  |  Y  |  ;  |  F4   |
 // |  F2 | A/GUI | R/LALT | S/LCTL | T/LSFT  |   D  | # |  H  |  N   |  E  |  I  |  O  | ENTER |
 // |  F3 |  Z    |  X     |  C     |  V      |   B  | # |  N  |  M   |  ,  |  .  |  /  |  F5   |
 //                  | LT MEDIA ESC | MO NAVI | LSFT | # | SPC | LT NUM BKSP | LT FUNC DEL |
 
-                        bindings = <
-   &kp F1  &kp Q         &kp W          &kp E          &kp P          &kp G         &kp J   &kp L           &kp U             &kp Y            &kp SCLN         &kp F4
-   &kp F2  &th_bal GUI A &th_bal LALT R &th_bal LCTL S &th_bal LSFT T &kp D         &kp H   &th_bal LSFT N  &th_bal LCTL E    &th_bal LALT I   &th_bal GUI O    &kp RET
-   &kp F3  &kp Z         &kp X          &kp C          &kp V          &kp B         &kp N   &kp M           &kp CMMA          &kp DOT          &kp FSLH         &kp F5
-                                        &lt MEDIA ESC  &mo NAVI       &kp LSFT      &kp SPC &lt NUM BKSP    &lt FUNC DEL
-                        >;
-                };
+            bindings = <
+&kp F1  &kp Q       &kp W      &kp E      &kp P      &kp G         &kp J   &kp L       &kp U         &kp Y        &kp SCLN     &kp F4
+&kp F2  &hm GUI A   &hm LALT R &hm LCTL S &hm LSFT T &kp D         &kp H   &hm LSFT N  &hm LCTL E    &hm LALT I   &hm GUI O    &kp RET
+&kp F3  &kp Z       &kp X      &kp C      &kp V      &kp B         &kp N   &kp M       &kp CMMA      &kp DOT      &kp FSLH     &kp F5
+                       &lt MEDIA ESC      &mo NAVI   &kp LSFT      &kp SPC &lt NUM BKSP &lt FUNC DEL
+            >;
+        };
 
-                navigation {
+        navigation {
 // -----------------------------------------------------------------------------------------
 // |     |     |      |      |      |      | # | UNDO | CUT  | COPY  | PASTE |     |     |
 // |     | GUI | LALT | LCTL | LSFT | TAB  | # | LFT  | DWN  |  UP   |  RGT  |     |     |
 // |     |     | RALT |      |      |      | # | HOME | PGDN | PGUP  |  END  |     |     |
 //                      |    |      | LSFT | # | SPC  | BKSP |  DEL  |
 
-                        bindings = <
-   &trans     &trans    &trans     &trans     &trans     &trans        &kp UNDO  &kp CUT   &kp COPY  &kp PSTE  &trans    &trans    
-   &trans     &kp GUI   &kp LALT   &kp LCTL   &kp LSFT   &trans        &kp LARW  &kp DARW  &kp UARW  &kp RARW  &trans    &trans
-   &kp LSFT   &trans    &trans     &trans     &trans     &trans        &kp HOME  &kp PGDN  &kp PGUP  &kp END   &trans    &trans
-                                   &trans     &trans     &kp LSFT      &kp SPC   &kp BKSP  &kp DEL
-                        >;
-                };
+            bindings = <
+&trans     &trans    &trans     &trans     &trans     &trans        &kp UNDO  &kp CUT   &kp COPY  &kp PSTE  &trans    &trans    
+&trans     &kp GUI   &kp LALT   &kp LCTL   &kp LSFT   &trans        &kp LARW  &kp DARW  &kp UARW  &kp RARW  &trans    &trans
+&kp LSFT   &trans    &trans     &trans     &trans     &trans        &kp HOME  &kp PGDN  &kp PGUP  &kp END   &trans    &trans
+                                &trans     &trans     &kp LSFT      &kp SPC   &kp BKSP  &kp DEL
+            >;  
+        };
 
-                media_keys {
+        media_keys {
 // -----------------------------------------------------------------------------------------
 // |     |     |      |      |      |      | # |      |      |      |      |     |     |
 // |     | GUI | LALT | LCTL | LSFT | TAB  | # | PREV | VOLD | VOLU | NEXT |     |     |
 // |     |     | RALT |      |      |      | # |      |      |      |      |     |     |
 //                    |      |      | LSFT | # | STOP | PLAY | MUTE |
 
-                        bindings = <
-   &trans     &trans    &trans     &trans     &trans     &trans        &trans     &trans     &trans     &trans     &trans    &trans    
-   &trans     &kp GUI   &kp LALT   &kp LCTL   &kp LSFT   &trans        &cp M_PREV &cp M_VOLD &cp M_VOLU &cp M_NEXT &trans    &trans
-   &kp LSFT   &trans    &trans     &trans     &trans     &trans        &trans     &trans     &trans     &trans     &trans    &trans
-                                   &trans     &trans     &kp LSFT      &cp M_STOP &cp M_PLAY &cp M_MUTE
-                        >;
-                };
+            bindings = <
+&trans     &trans    &trans     &trans     &trans     &trans        &trans     &trans     &trans     &trans     &trans    &trans    
+&trans     &kp GUI   &kp LALT   &kp LCTL   &kp LSFT   &trans        &cp M_PREV &cp M_VOLD &cp M_VOLU &cp M_NEXT &trans    &trans
+&kp LSFT   &trans    &trans     &trans     &trans     &trans        &trans     &trans     &trans     &trans     &trans    &trans
+                                &trans     &trans     &kp LSFT      &cp M_STOP &cp M_PLAY &cp M_MUTE
+            >;
+        };
 
-                numbers {
+        numbers {
 // -----------------------------------------------------------------------------------------
 // |     |  [{ |  7  |  8  |  9  |  ]}  | # |     |     |      |      |     |     |
 // |     |  -_ |  4  |  5  |  6  |  =+  | # |     | SFT | CTRL | LALT | WIN |     |
 // |     |  #~ |  1  |  2  |  3  |  \|  | # |     |     |      | RALT |     |     | 
 //                   |  .  |  0  | LSFT | # | WIN |     |      |
 
-                        bindings = <
-   &trans    &kp LBKT  &kp NUM_7    &kp NUM_8    &kp NUM_9    &kp RBKT      &trans    &trans   &trans    &trans    &trans    &trans    
-   &trans    &kp MINUS &kp NUM_4    &kp NUM_5    &kp NUM_6    &kp EQL      &trans    &kp LSFT  &kp LCTL &kp LALT  &kp GUI   &trans
-   &trans    &trans    &kp NUM_1    &kp NUM_2    &kp NUM_3    &kp BSLH      &trans    &trans   &kp RALT  &trans    &trans    &trans    
-                                    &kp DOT      &kp NUM_0    &kp LSFT      &kp GUI   &trans   &trans
-                        >;
-                };
+            bindings = <
+&trans    &kp LBKT  &kp NUM_7    &kp NUM_8    &kp NUM_9    &kp RBKT      &trans    &trans   &trans    &trans    &trans    &trans    
+&trans    &kp MINUS &kp NUM_4    &kp NUM_5    &kp NUM_6    &kp EQL       &trans    &kp LSFT  &kp LCTL &kp LALT  &kp GUI   &trans
+&trans    &trans    &kp NUM_1    &kp NUM_2    &kp NUM_3    &kp BSLH      &trans    &trans   &kp RALT  &trans    &trans    &trans    
+                                 &kp DOT      &kp NUM_0    &kp LSFT      &kp GUI   &trans   &trans
+            >;
+        };
 
-                function_keys {
+        function_keys {
 // -----------------------------------------------------------------------------------------
 // |     |  F12 |  F7  |  F8  |  F9  | PTSRN | # |     |     |      |      |     |     |
 // |     |  F11 |  F4  |  F5  |  F6  | SCRLL | # |     | SFT | CTRL | LALT | WIN |     |
 // |     |  F10 |  F1  |  F2  |  F3  | PAUSE | # |     |     |      | RALT |     |     | 
 //                     |      |      |  TAB  | # | WIN |     |      |
 
-                        bindings = <
-   &trans    &kp F12    &kp F7    &kp F8    &kp F9    &kp PRSC      &trans    &trans   &trans    &trans    &trans    &trans    
-   &trans    &kp F11    &kp F4    &kp F5    &kp F6    &trans        &trans    &kp LSFT &kp LCTL  &kp LALT  &kp GUI   &trans
-   &trans    &kp F10    &kp F1    &kp F2    &kp F3    &trans        &trans    &trans   &kp RALT  &trans    &trans    &trans    
-                                  &trans    &trans    &kp LSFT      &kp GUI   &trans   &trans
-                        >;
-                };
+            bindings = <
+&trans    &kp F12    &kp F7    &kp F8    &kp F9    &kp PRSC      &trans    &trans   &trans    &trans    &trans    &trans    
+&trans    &kp F11    &kp F4    &kp F5    &kp F6    &trans        &trans    &kp LSFT &kp LCTL  &kp LALT  &kp GUI   &trans
+&trans    &kp F10    &kp F1    &kp F2    &kp F3    &trans        &trans    &trans   &kp RALT  &trans    &trans    &trans    
+                               &trans    &trans    &kp LSFT      &kp GUI   &trans   &trans
+            >;
         };
+    };
 };
 
