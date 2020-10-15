@@ -8,14 +8,18 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+// Layer Definitions
 #define DEFAULT 0
 #define NAVI 1
 #define MEDIA 2
 #define NUM 3
 #define FUNC 4
-
 #define NONE 0
 
+// TODO
+// Change right index LSFT on numbers layer to shift to alternative shift layer, 
+// with everything shifted except the left thumb keys being ( )
+// (waiting on ZMK extended keycode support)
 
 / {
     behaviors {
@@ -35,9 +39,9 @@
 
         default_layer {
 // -----------------------------------------------------------------------------------------
-// |  F1 |  Q    |  W     |  F     |  P      |   G  | # |  J  |  L   |  U  |  Y  |  ;  |  F4   |
-// |  F2 | A/GUI | R/LALT | S/LCTL | T/LSFT  |   D  | # |  H  |  N   |  E  |  I  |  O  | ENTER |
-// |  F3 |  Z    |  X     |  C     |  V      |   B  | # |  N  |  M   |  ,  |  .  |  /  |  F5   |
+// |  F1 |  Q    |  W     |  F     |  P      |   G  | # |  J  |    L    |    U    |    Y   |   ;   |  F4   |
+// |  F2 | A/GUI | R/LALT | S/LCTL | T/LSFT  |   D  | # |  H  |  N/LSFT | E/LCTRL | I/LALT | O/GUI | ENTER |
+// |  F3 |  Z    |  X     |  C     |  V      |   B  | # |  N  |    M    |    ,    |    .   |   /   |  F5   |
 //                  | LT MEDIA ESC | MO NAVI | LSFT | # | SPC | LT NUM BKSP | LT FUNC DEL |
 
             bindings = <
@@ -53,11 +57,11 @@
 // |     |     |      |      |      |      | # | UNDO | CUT  | COPY  | PASTE |     |     |
 // |     | GUI | LALT | LCTL | LSFT | TAB  | # | LFT  | DWN  |  UP   |  RGT  |     |     |
 // |     |     | RALT |      |      |      | # | HOME | PGDN | PGUP  |  END  |     |     |
-//                      |    |      | LSFT | # | SPC  | BKSP |  DEL  |
+//                      |    | HELD | LSFT | # | SPC  | BKSP |  DEL  |
 
             bindings = <
 &trans     &trans    &trans     &trans     &trans     &trans        &kp UNDO  &kp CUT   &kp COPY  &kp PSTE  &trans    &trans    
-&trans     &kp GUI   &kp LALT   &kp LCTL   &kp LSFT   &trans        &kp LARW  &kp DARW  &kp UARW  &kp RARW  &trans    &trans
+&trans     &kp GUI   &kp LALT   &kp LCTL   &kp LSFT   &kp TAB       &kp LARW  &kp DARW  &kp UARW  &kp RARW  &trans    &trans
 &kp LSFT   &trans    &trans     &trans     &trans     &trans        &kp HOME  &kp PGDN  &kp PGUP  &kp END   &trans    &trans
                                 &trans     &trans     &kp LSFT      &kp SPC   &kp BKSP  &kp DEL
             >;  
@@ -68,11 +72,11 @@
 // |     |     |      |      |      |      | # |      |      |      |      |     |     |
 // |     | GUI | LALT | LCTL | LSFT | TAB  | # | PREV | VOLD | VOLU | NEXT |     |     |
 // |     |     | RALT |      |      |      | # |      |      |      |      |     |     |
-//                    |      |      | LSFT | # | STOP | PLAY | MUTE |
+//                    | HELD |      | LSFT | # | STOP | PLAY | MUTE |
 
             bindings = <
 &trans     &trans    &trans     &trans     &trans     &trans        &trans     &trans     &trans     &trans     &trans    &trans    
-&trans     &kp GUI   &kp LALT   &kp LCTL   &kp LSFT   &trans        &cp M_PREV &cp M_VOLD &cp M_VOLU &cp M_NEXT &trans    &trans
+&trans     &kp GUI   &kp LALT   &kp LCTL   &kp LSFT   &kp TAB       &cp M_PREV &cp M_VOLD &cp M_VOLU &cp M_NEXT &trans    &trans
 &kp LSFT   &trans    &trans     &trans     &trans     &trans        &trans     &trans     &trans     &trans     &trans    &trans
                                 &trans     &trans     &kp LSFT      &cp M_STOP &cp M_PLAY &cp M_MUTE
             >;
@@ -80,10 +84,10 @@
 
         numbers {
 // -----------------------------------------------------------------------------------------
-// |     |  [{ |  7  |  8  |  9  |  ]}  | # |     |     |      |      |     |     |
-// |     |  '@ |  4  |  5  |  6  |  =+  | # |     | SFT | CTRL | LALT | WIN |     |
-// |     |  #~ |  1  |  2  |  3  |  \|  | # |     |     |      | RALT |     |     | 
-//                   |  .  |  0  |  -_  | # | WIN |     |      |
+// |     |  [{ |  7  |  8  |  9  |  ]}  | # |     |      |      |      |     |     |
+// |     |  '@ |  4  |  5  |  6  |  =+  | # |     |  SFT | CTRL | LALT | WIN |     |
+// |     |  #~ |  1  |  2  |  3  |  \|  | # |     |      |      | RALT |     |     | 
+//                   |  .  |  0  |  -_  | # | WIN | HELD |      |
 
             bindings = <
 &trans    &kp LBKT  &kp NUM_7    &kp NUM_8    &kp NUM_9    &kp RBKT      &trans    &trans   &trans    &trans    &trans    &trans    
@@ -98,7 +102,7 @@
 // |     |  F12 |  F7  |  F8  |  F9  | PTSRN | # |     |     |      |      |     |     |
 // |     |  F11 |  F4  |  F5  |  F6  | SCRLL | # |     | SFT | CTRL | LALT | WIN |     |
 // |     |  F10 |  F1  |  F2  |  F3  | PAUSE | # |     |     |      | RALT |     |     | 
-//                     |      |      |  TAB  | # | WIN |     |      |
+//                     |      |      |  TAB  | # | WIN |     | HELD |
 
             bindings = <
 &trans    &kp F12    &kp F7    &kp F8    &kp F9    &kp PRSC      &trans    &trans   &trans    &trans    &trans    &trans    
