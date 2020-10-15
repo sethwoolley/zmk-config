@@ -81,15 +81,15 @@
         numbers {
 // -----------------------------------------------------------------------------------------
 // |     |  [{ |  7  |  8  |  9  |  ]}  | # |     |     |      |      |     |     |
-// |     |  -_ |  4  |  5  |  6  |  =+  | # |     | SFT | CTRL | LALT | WIN |     |
+// |     |  '@ |  4  |  5  |  6  |  =+  | # |     | SFT | CTRL | LALT | WIN |     |
 // |     |  #~ |  1  |  2  |  3  |  \|  | # |     |     |      | RALT |     |     | 
-//                   |  .  |  0  | LSFT | # | WIN |     |      |
+//                   |  .  |  0  |  -_  | # | WIN |     |      |
 
             bindings = <
 &trans    &kp LBKT  &kp NUM_7    &kp NUM_8    &kp NUM_9    &kp RBKT      &trans    &trans   &trans    &trans    &trans    &trans    
-&trans    &kp MINUS &kp NUM_4    &kp NUM_5    &kp NUM_6    &kp EQL       &trans    &kp LSFT  &kp LCTL &kp LALT  &kp GUI   &trans
+&trans    &kp QUOT  &kp NUM_4    &kp NUM_5    &kp NUM_6    &kp EQL       &trans    &kp LSFT  &kp LCTL &kp LALT  &kp GUI   &trans
 &trans    &trans    &kp NUM_1    &kp NUM_2    &kp NUM_3    &kp BSLH      &trans    &trans   &kp RALT  &trans    &trans    &trans    
-                                 &kp DOT      &kp NUM_0    &kp LSFT      &kp GUI   &trans   &trans
+                                 &kp DOT      &kp NUM_0    &kp MINUS     &kp GUI   &trans   &trans
             >;
         };
 
