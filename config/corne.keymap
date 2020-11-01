@@ -59,16 +59,16 @@
 
         navigation {
 // ---------------------------------------------------------------------------------------
-// |     |      |      |      |      |      | # | UNDO | CUT  | COPY  | PASTE |     |     |
-// |     | LGUI | LALT | LCTL | LSFT | TAB  | # | LFT  | DWN  |  UP   |  RGT  | ENT |     |
-// |     |      | RALT |      |      |      | # | HOME | PGDN | PGUP  |  END  |     |     |
-//                     |      | HELD | LSFT | # | SPC  | BKSP |  DEL  |
+// |     |      |      |       |      |      | # | UNDO | CUT  | COPY  | PASTE |     |     |
+// |     | LGUI | LALT | LCTL  | LSFT | TAB  | # | LFT  | DWN  |  UP   |  RGT  | ENT |     |
+// |     |      | RALT |       |      |      | # | HOME | PGDN | PGUP  |  END  |     |     |
+//                     | BTCLR | HELD | LSFT | # | SPC  | BKSP |  DEL  |
 
             bindings = <
-&trans     &trans    &trans     &trans     &trans     &trans        &kp UNDO  &kp CUT   &kp COPY  &kp PSTE  &trans    &trans    
-&trans     &kp LGUI  &kp LALT   &kp LCTL   &kp LSFT   &kp TAB       &kp LARW  &kp DARW  &kp UARW  &kp RARW  &kp RET   &trans
-&kp LSFT   &trans    &trans     &trans     &trans     &trans        &kp HOME  &kp PGDN  &kp PGUP  &kp END   &trans    &trans
-                                &trans     &trans     &kp LSFT      &kp SPC   &kp BKSP  &kp DEL
+&trans     &trans    &trans     &trans      &trans     &trans        &kp UNDO  &kp CUT   &kp COPY  &kp PSTE  &trans    &trans    
+&trans     &kp LGUI  &kp LALT   &kp LCTL    &kp LSFT   &kp TAB       &kp LARW  &kp DARW  &kp UARW  &kp RARW  &kp RET   &trans
+&kp LSFT   &trans    &trans     &trans      &trans     &trans        &kp HOME  &kp PGDN  &kp PGUP  &kp END   &trans    &trans
+                                &bt BT_CLR  &trans     &kp LSFT      &kp SPC   &kp BKSP  &kp DEL
             >;  
         };
 
