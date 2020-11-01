@@ -50,7 +50,7 @@
 //                         | LT MEDIA ESC | MO NAVI | LSFT | # | SPC | LT NUM BKSP | LT FUNC DEL |
 
             bindings = <
-&bt BT_CLR  &kp Q        &kp W      &kp E      &kp P      &kp G         &kp J   &kp L       &kp U         &kp Y        &kp SCLN     &kp F4
+&bt BT_CLR  &bt BT_CLR        &kp W      &kp E      &kp P      &kp G         &kp J   &kp L       &kp U         &kp Y        &kp SCLN     &kp F4
 &kp F2  &hm LGUI A   &hm LALT R &hm LCTL S &hm LSFT T &kp D         &kp H   &hm LSFT N  &hm LCTL E    &hm LALT I   &hm LGUI O   &kp RET
 &kp F3  &kp Z        &kp X      &kp C      &kp V      &kp B         &kp N   &kp M       &kp CMMA      &kp DOT      &kp FSLH     &kp F5
                         &kp A      &mo NAVI   &kp LSFT      &kp SPC &lt NUM BKSP &lt FUNC DEL
