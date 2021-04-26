@@ -23,7 +23,7 @@
 // (waiting on ZMK extended keycode support)
 
 / {
-//  Homerow mod held behaviour
+//  Homerow mod held behaviour 
     behaviors {
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
