@@ -14,7 +14,9 @@
 #define NAVI 1
 #define NUM 2
 #define FUNC 3
-#define MEDIA 4
+#define GAME 4
+#define GNUM 5
+#define MEDIA 6
 #define NONE 0
 
 / {
@@ -62,13 +64,13 @@
 
         navigation {
 // ---------------------------------------------------------------------------------------
-// |     |      |      |       |      |      | # | DWN | RGT  |  INSERT |       |     |     |
-// |     | LGUI | LALT | LCTL  | LSFT | TAB  | # | LF  | DWN  |   UP    |  RGT  | ENT |     |
-// |     |      | RALT |       |      |      | # | UP  | HOME |   END   |       |     |     |
-//                     | BTCLR | HELD | LSFT | # | SPC | BKSP |   DEL   |
+// |     |      |      |  DEL  |      | TOGGLE GAME | # | DWN | RGT  |  INSERT |       |     |     |
+// |     | LGUI | LALT | LCTL  | LSFT |     TAB     | # | LF  | DWN  |   UP    |  RGT  | ENT |     |
+// |     |      | RALT |       |      |             | # | UP  | HOME |   END   |       |     |     |
+//                     | BTCLR | HELD |     LSFT    | # | SPC | BKSP |   DEL   |
 
             bindings = <
-&trans     &trans    &trans     &trans      &trans     &trans        &kp DARW  &kp RARW  &kp INS   &trans    &trans    &trans    
+&trans     &trans    &kp DEL    &trans      &tog GAME  &trans        &kp DARW  &kp RARW  &kp INS   &trans    &trans    &trans    
 &trans     &kp LGUI  &kp LALT   &kp LCTL    &kp LSFT   &kp TAB       &kp LARW  &kp DARW  &kp UARW  &kp RARW  &kp RET   &trans
 &kp LSFT   &trans    &trans     &trans      &trans     &trans        &kp UARW  &kp HOME  &kp END   &trans    &trans    &trans
                                 &bt BT_CLR  &trans     &kp LSFT      &kp SPC   &kp BKSP  &kp DEL
@@ -83,10 +85,10 @@
 //                   |  .  |  0  |  -_  | # | WIN | HELD |      |
 
             bindings = <
-&trans    &kp LBKT  &kp N7    &kp N8    &kp N9    &kp RBKT      &trans    &trans   &trans    &trans    &trans    &trans    
-&trans    &kp QUOT  &kp N4    &kp N5    &kp N6    &kp EQL       &trans    &kp LSFT  &kp LCTL &kp LALT  &kp LGUI  &trans
-&trans    &trans    &kp N1    &kp N2    &kp N3    &kp BSLH      &trans    &trans   &kp RALT  &trans    &trans    &trans    
-                              &kp DOT   &kp N0    &kp MINUS     &kp LGUI  &trans   &trans
+&trans    &kp LBKT        &kp N7    &kp N8    &kp N9    &kp RBKT      &trans    &trans   &trans    &trans    &trans    &trans    
+&trans    &kp QUOT        &kp N4    &kp N5    &kp N6    &kp EQL       &trans    &kp LSFT  &kp LCTL &kp LALT  &kp LGUI  &trans
+&trans    &kp NON_US_HASH &kp N1    &kp N2    &kp N3    &kp BSLH      &trans    &trans   &kp RALT  &trans    &trans    &trans    
+                                    &kp DOT   &kp N0    &kp MINUS     &kp LGUI  &trans   &trans
             >;
         };
 
@@ -102,6 +104,36 @@
 &trans    &kp F11    &kp F4    &kp F5    &kp F6    &trans        &trans     &kp LSFT &kp LCTL  &kp LALT  &kp LGUI  &trans
 &trans    &kp F10    &kp F1    &kp F2    &kp F3    &trans        &trans     &trans   &kp RALT  &trans    &trans    &trans    
                                &trans    &trans    &kp LSFT      &kp LGUI   &trans   &trans
+            >;
+        };        
+
+        gaming {
+// ---------------------------------------------------------------------------------------------------------
+// |  F1   |   Q   |   W   |   E   |    R    |  T   | # |  Y  |      U      |      I      |    O   |   P   |  F4   |
+// |  NUMS |   A   |   S   |   D   |    F    |  G   | # |  H  |      J      |      K      |    L   |   ;   | ENTER |
+// |  LSFT |   Z   |   X   |   C   |    V    |  B   | # |  N  |      M      |      ,      |    .   |   /   |  F5   |
+//                         | LCTL  | MO NAVI | LSFT | # | SPC | TOGGLE GAME | LT FUNC DEL |
+
+            bindings = <
+&kp F1    &kp Q    &kp W    &kp E      &kp R     &kp T        &kp Y    &kp U      &kp I     &kp O    &kp P      &kp F4
+&mo GNUM  &kp A    &kp S    &hm D      &kp F     &kp G        &kp H    &kp J      &kp K     &kp L    &kp SCLN   &kp RET
+&kp LSFT  &kp Z    &kp X    &kp C      &kp V     &kp B        &kp N    &kp M      &kp CMMA  &kp DOT  &kp FSLH   &kp F5
+                            &kp LSFT   &kp LCTL  &kp SPC      &kp SPC  &tog GAME  &lt FUNC DEL
+            >;
+        };
+
+        gaming_numbers {
+// ---------------------------------------------------------------------------------
+// |      |  TOGGLE GAME |  7  |  8   |  9  |  ]}  | # |     |      |      |      |      |     |
+// | HELD |       M      |  4  |  5   |  6  |  =+  | # |  LF | DWN  |  UP  | RGT  | ENT  |     |
+// |      |       #~     |  1  |  2   |  3  |  \|  | # |     |      |      |      |      |     | 
+//                             | LALT |  0  |  -_  | # | WIN |      |      |
+
+            bindings = <
+&trans    &tog GAME &kp N7    &kp N8    &kp N9    &kp RBKT      &trans    &trans   &trans    &trans    &trans    &trans    
+&trans    &kp M     &kp N4    &kp N5    &kp N6    &kp EQL       &trans    &kp LSFT  &kp LCTL &kp LALT  &kp LGUI  &trans
+&trans    &trans    &kp N1    &kp N2    &kp N3    &kp BSLH      &trans    &trans   &kp RALT  &trans    &trans    &trans    
+                              &kp LALT  &kp N0    &kp MINUS     &kp LGUI  &trans   &trans
             >;
         };
 
