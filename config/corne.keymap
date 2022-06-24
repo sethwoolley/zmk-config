@@ -28,12 +28,13 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-        td0: tap_dance_0 {
+        // Double tap N for ESC
+        nesc: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_0";
-            #binding-cells = <2>;
+            label = "N_FOR_ESC";
+            #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp>, <&kp>;
+            bindings = <&kp N>, <&kp ESC>;
         };
     };
 
@@ -53,7 +54,7 @@
 
             bindings = <
 &kp F1  &kp Q        &kp W      &kp F      &kp P      &kp G         &kp J    &kp L        &kp U         &kp Y        &kp SCLN     &kp F4
-&kp F2  &hm LGUI A   &hm LALT R &hm LCTL S &kp T      &kp D         &kp H    &td0 N ESC   &hm LCTL E    &hm LALT I   &hm LGUI O   &kp RET
+&kp F2  &hm LGUI A   &hm LALT R &hm LCTL S &kp T      &kp D         &kp H    &nesc        &hm LCTL E    &hm LALT I   &hm LGUI O   &kp RET
 &kp F3  &kp Z        &kp X      &kp C      &kp V      &kp B         &kp K    &kp M        &kp CMMA      &kp DOT      &kp FSLH     &kp F5
                                 &kp LCTL   &mo NAVI   &kp LSFT      &kp SPC  &lt NUM BKSP &lt FUNC DEL
             >;
