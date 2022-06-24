@@ -17,11 +17,6 @@
 #define FUNC 4
 #define NONE 0
 
-// TODO
-// Change right index LSFT on numbers layer to shift to alternative shift layer, 
-// with everything shifted except the left thumb keys being ( )
-// (waiting on ZMK extended keycode support)
-
 / {
 //  Homerow mod held behaviour 
     behaviors {
@@ -33,6 +28,13 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+        td0: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
+        }
     };
 
 
@@ -45,13 +47,13 @@
         default_layer {
 // ---------------------------------------------------------------------------------------------------------
 // |  F1 |   Q    |   W    |    F   |    P    |  G   | # |  J  |      L      |      U      |    Y   |   ;    |  F4   |
-// |  F2 | A/LGUI | R/LALT | S/LCTL |  T/LSFT |  D   | # |  H  |    N/LSFT   |   E/LCTRL   | I/LALT | O/LGUI | ENTER |
+// |  F2 | A/LGUI | R/LALT | S/LCTL |    T    |  D   | # |  H  |    N/ESC    |   E/LCTRL   | I/LALT | O/LGUI | ENTER |
 // |  F3 |   Z    |   X    |    C   |    V    |  B   | # |  N  |      M      |      ,      |    .   |   /    |  F5   |
 //                         |  LCTL  | MO NAVI | LSFT | # | SPC | LT NUM BKSP | LT FUNC DEL |
 
             bindings = <
 &kp F1  &kp Q        &kp W      &kp F      &kp P      &kp G         &kp J    &kp L        &kp U         &kp Y        &kp SCLN     &kp F4
-&kp F2  &hm LGUI A   &hm LALT R &hm LCTL S &hm LSFT T &kp D         &kp H    &hm LSFT N   &hm LCTL E    &hm LALT I   &hm LGUI O   &kp RET
+&kp F2  &hm LGUI A   &hm LALT R &hm LCTL S &kp T      &kp D         &kp H    &td0 N ESC   &hm LCTL E    &hm LALT I   &hm LGUI O   &kp RET
 &kp F3  &kp Z        &kp X      &kp C      &kp V      &kp B         &kp K    &kp M        &kp CMMA      &kp DOT      &kp FSLH     &kp F5
                                 &kp LCTL   &mo NAVI   &kp LSFT      &kp SPC  &lt NUM BKSP &lt FUNC DEL
             >;
@@ -95,9 +97,9 @@
 //                     |      |      |  TAB  | # | WIN |     | HELD |
 
             bindings = <
-&trans    &kp F12    &kp F7    &kp F8    &kp F9    &kp PRSC      &trans    &trans   &trans    &trans    &trans    &trans    
-&trans    &kp F11    &kp F4    &kp F5    &kp F6    &trans        &trans    &kp LSFT &kp LCTL  &kp LALT  &kp LGUI  &trans
-&trans    &kp F10    &kp F1    &kp F2    &kp F3    &trans        &trans    &trans   &kp RALT  &trans    &trans    &trans    
+&trans    &kp F12    &kp F7    &kp F8    &kp F9    &kp PRSC      &trans     &trans   &trans    &trans    &trans    &trans    
+&trans    &kp F11    &kp F4    &kp F5    &kp F6    &trans        &trans     &kp LSFT &kp LCTL  &kp LALT  &kp LGUI  &trans
+&trans    &kp F10    &kp F1    &kp F2    &kp F3    &trans        &trans     &trans   &kp RALT  &trans    &trans    &trans    
                                &trans    &trans    &kp LSFT      &kp LGUI   &trans   &trans
             >;
         };
