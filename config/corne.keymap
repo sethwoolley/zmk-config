@@ -9,7 +9,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-// Layer Definitions
+// Layer Definition
 #define DEFAULT 0
 #define NAVI 1
 #define MEDIA 2
@@ -30,7 +30,7 @@
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
             tapping_term_ms = <120>;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
     };
@@ -44,47 +44,32 @@
 
         default_layer {
 // ---------------------------------------------------------------------------------------------------------
-// |  F1 |   Q    |   W    |       F      |    P    |  G   | # |  J  |      L      |      U      |    Y   |   ;    |  F4   |
-// |  F2 | A/LGUI | R/LALT |    S/LCTL    |  T/LSFT |  D   | # |  H  |    N/LSFT   |   E/LCTRL   | I/LALT | O/LGUI | ENTER |
-// |  F3 |   Z    |   X    |       C      |    V    |  B   | # |  N  |      M      |      ,      |    .   |   /    |  F5   |
-//                         | LT MEDIA ESC | MO NAVI | LSFT | # | SPC | LT NUM BKSP | LT FUNC DEL |
+// |  F1 |   Q    |   W    |    F   |    P    |  G   | # |  J  |      L      |      U      |    Y   |   ;    |  F4   |
+// |  F2 | A/LGUI | R/LALT | S/LCTL |  T/LSFT |  D   | # |  H  |    N/LSFT   |   E/LCTRL   | I/LALT | O/LGUI | ENTER |
+// |  F3 |   Z    |   X    |    C   |    V    |  B   | # |  N  |      M      |      ,      |    .   |   /    |  F5   |
+//                         |  LCTL  | MO NAVI | LSFT | # | SPC | LT NUM BKSP | LT FUNC DEL |
 
             bindings = <
-&kp F1  &kp Q        &kp W      &kp F      &kp P      &kp G         &kp J   &kp L       &kp U         &kp Y        &kp SCLN     &kp F4
-&kp F2  &hm LGUI A   &hm LALT R &hm LCTL S &hm LSFT T &kp D         &kp H   &hm LSFT N  &hm LCTL E    &hm LALT I   &hm LGUI O   &kp RET
-&kp F3  &kp Z        &kp X      &kp C      &kp V      &kp B         &kp N   &kp M       &kp CMMA      &kp DOT      &kp FSLH     &kp F5
-                        &kp A      &mo NAVI   &kp LSFT      &kp SPC &lt NUM BKSP &lt FUNC DEL
+&kp F1  &kp Q        &kp W      &kp F      &kp P      &kp G         &kp J    &kp L        &kp U         &kp Y        &kp SCLN     &kp F4
+&kp F2  &hm LGUI A   &hm LALT R &hm LCTL S &hm LSFT T &kp D         &kp H    &hm LSFT N   &hm LCTL E    &hm LALT I   &hm LGUI O   &kp RET
+&kp F3  &kp Z        &kp X      &kp C      &kp V      &kp B         &kp K    &kp M        &kp CMMA      &kp DOT      &kp FSLH     &kp F5
+                                &kp LCTL   &mo NAVI   &kp LSFT      &kp SPC  &lt NUM BKSP &lt FUNC DEL
             >;
         };
 
         navigation {
 // ---------------------------------------------------------------------------------------
-// |     |      |      |       |      |      | # | UNDO | CUT  | COPY  | PASTE |     |     |
-// |     | LGUI | LALT | LCTL  | LSFT | TAB  | # | LFT  | DWN  |  UP   |  RGT  | ENT |     |
-// |     |      | RALT |       |      |      | # | HOME | PGDN | PGUP  |  END  |     |     |
-//                     | BTCLR | HELD | LSFT | # | SPC  | BKSP |  DEL  |
+// |     |      |      |       |      |      | # | DWN | RGT  |  INSERT |       |     |     |
+// |     | LGUI | LALT | LCTL  | LSFT | TAB  | # | LF  | DWN  |   UP    |  RGT  | ENT |     |
+// |     |      | RALT |       |      |      | # | UP  | HOME |   END   |       |     |     |
+//                     | BTCLR | HELD | LSFT | # | SPC | BKSP |   DEL   |
 
             bindings = <
-&trans     &trans    &trans     &trans      &trans     &trans        &kp UNDO  &kp CUT   &kp COPY  &kp PSTE  &trans    &trans    
+&trans     &trans    &trans     &trans      &trans     &trans        &kp DARW  &kp RARW  &kp INS   &trans    &trans    &trans    
 &trans     &kp LGUI  &kp LALT   &kp LCTL    &kp LSFT   &kp TAB       &kp LARW  &kp DARW  &kp UARW  &kp RARW  &kp RET   &trans
-&kp LSFT   &trans    &trans     &trans      &trans     &trans        &kp HOME  &kp PGDN  &kp PGUP  &kp END   &trans    &trans
+&kp LSFT   &trans    &trans     &trans      &trans     &trans        &kp UARW  &kp HOME  &kp END   &trans    &trans    &trans
                                 &bt BT_CLR  &trans     &kp LSFT      &kp SPC   &kp BKSP  &kp DEL
             >;  
-        };
-
-        media_keys {
-// -------------------------------------------------------------------------------------
-// |     |      |      |      |      |      | # |      |      |      |      |     |     |
-// |     | LGUI | LALT | LCTL | LSFT | TAB  | # | PREV | VOLD | VOLU | NEXT |     |     |
-// |     |      | RALT |      |      |      | # |      |      |      |      |     |     |
-//                     | HELD |      | LSFT | # | STOP | PLAY | MUTE |
-
-            bindings = <
-&trans     &trans    &trans     &trans     &trans     &trans        &trans     &trans     &trans     &trans     &trans    &trans    
-&trans     &kp LGUI  &kp LALT   &kp LCTL   &kp LSFT   &kp TAB       &cp M_PREV &cp M_VOLD &cp M_VOLU &cp M_NEXT &trans    &trans
-&kp LSFT   &trans    &trans     &trans     &trans     &trans        &trans     &trans     &trans     &trans     &trans    &trans
-                                &trans     &trans     &kp LSFT      &cp M_STOP &cp M_PLAY &cp M_MUTE
-            >;
         };
 
         numbers {
@@ -95,10 +80,10 @@
 //                   |  .  |  0  |  -_  | # | WIN | HELD |      |
 
             bindings = <
-&trans    &kp LBKT  &kp NUM_7    &kp NUM_8    &kp NUM_9    &kp RBKT      &trans    &trans   &trans    &trans    &trans    &trans    
-&trans    &kp QUOT  &kp NUM_4    &kp NUM_5    &kp NUM_6    &kp EQL       &trans    &kp LSFT  &kp LCTL &kp LALT  &kp LGUI  &trans
-&trans    &trans    &kp NUM_1    &kp NUM_2    &kp NUM_3    &kp BSLH      &trans    &trans   &kp RALT  &trans    &trans    &trans    
-                                 &kp DOT      &kp NUM_0    &kp MINUS     &kp LGUI   &trans   &trans
+&trans    &kp LBKT  &kp N7    &kp N8    &kp N9    &kp RBKT      &trans    &trans   &trans    &trans    &trans    &trans    
+&trans    &kp QUOT  &kp N4    &kp N5    &kp N6    &kp EQL       &trans    &kp LSFT  &kp LCTL &kp LALT  &kp LGUI  &trans
+&trans    &trans    &kp N1    &kp N2    &kp N3    &kp BSLH      &trans    &trans   &kp RALT  &trans    &trans    &trans    
+                              &kp DOT   &kp N0    &kp MINUS     &kp LGUI rans   &trans
             >;
         };
 
@@ -114,6 +99,21 @@
 &trans    &kp F11    &kp F4    &kp F5    &kp F6    &trans        &trans    &kp LSFT &kp LCTL  &kp LALT  &kp LGUI  &trans
 &trans    &kp F10    &kp F1    &kp F2    &kp F3    &trans        &trans    &trans   &kp RALT  &trans    &trans    &trans    
                                &trans    &trans    &kp LSFT      &kp LGUI   &trans   &trans
+            >;
+        };
+
+        media_keys { // UNUSED
+// -------------------------------------------------------------------------------------
+// |     |      |      |      |      |      | # |      |      |      |      |     |     |
+// |     | LGUI | LALT | LCTL | LSFT | TAB  | # | PREV | VOLD | VOLU | NEXT |     |     |
+// |     |      | RALT |      |      |      | # |      |      |      |      |     |     |
+//                     | HELD |      | LSFT | # | STOP | PLAY | MUTE |
+
+            bindings = <
+&trans     &trans    &trans     &trans     &trans     &trans        &trans     &trans     &trans     &trans     &trans    &trans    
+&trans     &kp LGUI  &kp LALT   &kp LCTL   &kp LSFT   &kp TAB       &cp M_PREV &cp M_VOLD &cp M_VOLU &cp M_NEXT &trans    &trans
+&kp LSFT   &trans    &trans     &trans     &trans     &trans        &trans     &trans     &trans     &trans     &trans    &trans
+                                &trans     &trans     &kp LSFT      &cp M_STOP &cp M_PLAY &cp M_MUTE
             >;
         };
     };
