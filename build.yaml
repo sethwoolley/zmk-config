@@ -17,3 +17,5 @@ include:
     shield: corne_left
   - board: nice_nano
     shield: corne_right
+  - board: nice_nano
+    shield: settings_reset
