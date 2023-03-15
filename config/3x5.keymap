@@ -51,7 +51,6 @@
  *              ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
  *
  * COMBS
- *              36 Keys
  * ╭──────────────╮ ╭──────────────╮
  * │ 0  1  2  3  4│ │ 5  6  7  8  9│
  * │10 11 12 13 14│ │15 16 17 18 19│
@@ -149,9 +148,9 @@
 //  ╰─────┴─────┤ CTL |-SYM-| SFT | | SPC |NUM/BKSP| ALT ├─────┴─────╯
 //              ╰─────┴─────┴─────╯ ╰─────┴────────┴─────╯
                         bindings = <
-&kp Q  &kp W  &kp F     &kp P    &kp B           &kp J      &kp L         &kp U      &kp Y    &kp SEMI
-&kp A  &kp R  &kp S     &kp T    &kp G           &kp M      &kp N         &kp E      &kp I    &kp O
-&kp Z  &kp X  &kp C     &kp D    &kp V           &kp K      &kp H         &kp COMMA  &kp DOT  &kp FSLH
+&kp Q  &kp W  &kp F     &kp P    &kp G           &kp J      &kp L         &kp U      &kp Y    &kp SEMI
+&kp A  &kp R  &kp S     &kp T    &kp D           &kp H      &kp N         &kp E      &kp I    &kp O
+&kp Z  &kp X  &kp C     &kp V    &kp B           &kp K      &kp H         &kp COMMA  &kp DOT  &kp FSLH
               &kp LCTL  &mo SYM  &kp LSFT        &kp SPACE  &lt NUM BSPC  &kp DEL
                         >;
                 };
