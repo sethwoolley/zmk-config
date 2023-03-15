@@ -1,0 +1,7 @@
+#include "3x5.keymap"
+
+/ {
+    chosen {
+        zmk,matrix_transform = &five_column_transform;
+    };
+};
