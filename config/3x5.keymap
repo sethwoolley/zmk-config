@@ -59,9 +59,9 @@
  *       ╰────────╯ ╰────────╯
  *   1 & 2  - DEL
  *  21 & 22 - TAB
- *  31 & 32 - GUI
+ *  31 & 32 - ALT
  *                    7 & 8  - ENTER
- *                   33 & 34 - LALT
+ *                   33 & 34 - GUI
  */
 
 
@@ -109,20 +109,20 @@
             bindings = <&kp TAB>;
         };
 
-        // SYM + LSFT = GUI
-        combo_gui {
-            layers = <0 1 2 3 4 5>;
-            timeout-ms = <50>;
-            key-positions = <31 32>;
-            bindings = <&sk LGUI>;
-        };
-
-        // NUM + SPC = LALT
+        // SYM + LSFT = ALT
         combo_alt {
             layers = <0 1 2 3 4 5>;
             timeout-ms = <50>;
-            key-positions = <33 34>;
+            key-positions = <31 32>;
             bindings = <&sk LALT>;
+        };
+
+        // NUM + SPC = LGUI
+        combo_gui {
+            layers = <0 1 2 3 4 5>;
+            timeout-ms = <50>;
+            key-positions = <33 34>;
+            bindings = <&sk LGUI>;
         };
 
         // U + Y = RETURN
@@ -130,7 +130,7 @@
             layers = <0 1 2 3 4 5>;
             timeout-ms = <50>;
             key-positions = <7 8>;
-            bindings = <&kp Q>;
+            bindings = <&kp RET>;
         };
     };
 };
@@ -150,7 +150,7 @@
                         bindings = <
 &kp Q  &kp W  &kp F     &kp P    &kp G           &kp J      &kp L         &kp U      &kp Y    &kp SEMI
 &kp A  &kp R  &kp S     &kp T    &kp D           &kp H      &kp N         &kp E      &kp I    &kp O
-&kp Z  &kp X  &kp C     &kp V    &kp B           &kp K      &kp H         &kp COMMA  &kp DOT  &kp FSLH
+&kp Z  &kp X  &kp C     &kp V    &kp B           &kp K      &kp M         &kp COMMA  &kp DOT  &kp FSLH
               &kp LCTL  &mo SYM  &kp LSFT        &kp SPACE  &lt NUM BSPC  &kp DEL
                         >;
                 };
@@ -163,7 +163,7 @@
 //              ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
                         bindings = <
 &kp ESC   &kp BSLH   &kp PRCNT  &kp DLLR  &none        &none     &kp CARET &kp LBRC &kp RBRC &kp RET
-&kp STAR  &kp LPAR   &kp RPAR   &kp COLON &none        &none     &kp SQT   &kp LBKT &kp RBKT &mo NAV
+&kp STAR  &kp LPAR   &kp RPAR   &kp COLON &none        &none     &kp SQT   &kp LBKT &kp RBKT &lt NAV RET
 &mo FUNC  &kp GRAVE  &kp AT     &kp AMPS  &none        &none     &kp HASH  &kp LT   &kp GT   &kp DEL
                      &trans     &trans    &kp LSFT     &kp SPACE &kp ESC   &trans
                         >;
