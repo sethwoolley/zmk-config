@@ -113,7 +113,7 @@
         combo_alt {
             layers = <0 1 2 3 4 5>;
             timeout-ms = <50>;
-            key-positions = <24 3>;
+            key-positions = <24 31>;
             bindings = <&sk LALT>;
         };
 
