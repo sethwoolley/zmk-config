@@ -21,9 +21,9 @@
  * NUMBERS
  * ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
  * | ESC |  4  |  5  |  6  |     | |     |  |  |  -  |  /  |     |
- * |  .  |  1  |  2  |  3  |     | |     |  "  |  _  |  =  |     |
+ * |  '  |  1  |  2  |  3  |     | |     |  "  |  _  |  =  |-NAV-|
  * |  ~  |  7  |  8  |  9  |     | |     |  +  |  ?  |  !  | DEL |
- * ╰─────┴─────┤     |  0  | SFT | | SPC |_NUM_|     ├─────┴─────╯
+ * ╰─────┴─────┤  .  |  0  | SFT | | SPC |_NUM_|     ├─────┴─────╯
  *             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
  *
  * FUNCTION
@@ -51,17 +51,17 @@
  *              ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
  *
  * COMBS
- * ╭──────────────╮ ╭──────────────╮
- * │ 0  1  2  3  4│ │ 5  6  7  8  9│
- * │10 11 12 13 14│ │15 16 17 18 19│
- * │20 21 22 23 24│ │25 26 27 28 29│
- * ╰─────╮30 31 32│ │33 34 35╭─────╯
- *       ╰────────╯ ╰────────╯
+ * ╭──────────────╮     ╭──────────────╮
+ * │ 0  1  2  3  4│     │ 5  6  7  8  9│
+ * │10 11 12 13 14│     │15 16 17 18 19│
+ * │20 21 22 23 24╰─╮ ╭─╯25 26 27 28 29│
+ * ╰───────╮30 31 32│ │33 34 35╭───────╯
+ *         ╰────────╯ ╰────────╯
  *   1 & 2  - DEL
  *  21 & 22 - TAB
- *  31 & 32 - ALT
+ *  31 & 24 - ALT
  *                    7 & 8  - ENTER
- *                   33 & 34 - GUI
+ *                   25 & 34 - GUI
  */
 
 
@@ -93,35 +93,35 @@
     combos {
         compatible = "zmk,combos";
         
-        // W + F = DELETE
+        // W + F = TAB
         combo_wf_delete {
             layers = <0 1 2 3 4 5>;
             timeout-ms = <50>;
             key-positions = <1 2>;
-            bindings = <&kp DEL>;
+            bindings = <&kp TAB>;
         };
 
-        // X + C = TAB
+        // X + C = DEL
         combo_xc_tab {
             layers = <0 1 2 3 4 5>;
             timeout-ms = <50>;
             key-positions = <21 22>;
-            bindings = <&kp TAB>;
+            bindings = <&kp DEL>;
         };
 
-        // SYM + LSFT = ALT
+        // SYM + B = ALT
         combo_alt {
             layers = <0 1 2 3 4 5>;
             timeout-ms = <50>;
-            key-positions = <31 32>;
+            key-positions = <24 3>;
             bindings = <&sk LALT>;
         };
 
-        // NUM + SPC = LGUI
+        // NUM + K = LGUI
         combo_gui {
             layers = <0 1 2 3 4 5>;
             timeout-ms = <50>;
-            key-positions = <33 34>;
+            key-positions = <25 34>;
             bindings = <&sk LGUI>;
         };
 
@@ -151,14 +151,14 @@
 &kp Q  &kp W  &kp F     &kp P    &kp G           &kp J      &kp L         &kp U      &kp Y    &kp SEMI
 &kp A  &kp R  &kp S     &kp T    &kp D           &kp H      &kp N         &kp E      &kp I    &kp O
 &kp Z  &kp X  &kp C     &kp V    &kp B           &kp K      &kp M         &kp COMMA  &kp DOT  &kp FSLH
-              &kp LCTL  &mo SYM  &kp LSFT        &kp SPACE  &lt NUM BSPC  &kp DEL
+              &sk LCTL  &mo SYM  &sk LSFT        &kp SPACE  &lt NUM BSPC  &kp DEL
                         >;
                 };
                 symbol_layer {
 // ╭──────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
 // | ESC  |  \  |  %  |  $  |     | |     |  ^  |  {  |  }  | RET |
 // |  *   |  (  |  )  |  :  |     | |     |  '  |  [  |  ]  |-NAV-|
-// |-FUNC-|  `  |  @  |  &  |     | |     |  #  |  <  |  >  | DEL |
+// |-FUNC-|  `  |  @  |  &  | ALT | |     |  #  |  <  |  >  | DEL |
 // ╰──────┴─────┤     |_SYM_| SFT | | SPC | ESC |     ├─────┴─────╯
 //              ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
                         bindings = <
@@ -171,15 +171,15 @@
                 number_layer {
 // ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
 // | ESC |  4  |  5  |  6  |     | |     |  |  |  -  |  /  |     |
-// |  .  |  1  |  2  |  3  |     | |     |  "  |  _  |  =  |     |
-// |  ~  |  7  |  8  |  9  |     | |     |  +  |  ?  |  !  | DEL |
-// ╰─────┴─────┤     |  0  | SFT | | SPC |_NUM_|     ├─────┴─────╯
+// |  '  |  1  |  2  |  3  |     | |     |  "  |  _  |  =  |-NAV-|
+// |  ~  |  7  |  8  |  9  |     | | GUI |  +  |  ?  |  !  | DEL |
+// ╰─────┴─────┤  .  |  0  | SFT | | SPC |_NUM_|     ├─────┴─────╯
 //             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
                         bindings = <
 &kp ESC    &kp N4  &kp N5  &kp N6 &none         &none      &kp PIPE  &kp MINUS  &kp FSLH    &none
-&kp DOT    &kp N1  &kp N2  &kp N3 &none         &none      &kp DQT   &kp UNDER  &kp EQUAL   &none
+&kp SQT    &kp N1  &kp N2  &kp N3 &none         &none      &kp DQT   &kp UNDER  &kp EQUAL   &mo NAV
 &kp TILDE  &kp N7  &kp N8  &kp N9 &none         &none      &kp PLUS  &kp QMARK  &kp EXCL    &kp DEL
-                   &trans  &kp N0 &kp LSFT      &kp SPACE  &trans    &trans
+                   &kp DOT &kp N0 &kp LSFT      &kp SPACE  &trans    &trans
                         >;
                 };
                 FUNC_layer {
