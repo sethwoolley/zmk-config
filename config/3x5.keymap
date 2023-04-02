@@ -12,7 +12,7 @@
  *
  * SYMBOLS
  *╭──────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
- *│ ESC  │  \  │  %  │  $  │     │ │     │  ^  │  {  │  }  │ RET │
+ *│ ESC  │  \  │  %  │  $  │GAMIN│ │     │  ^  │  {  │  }  │ RET │
  *│  *   │  (  │  )  │  :  │     │ │     │  '  │  [  │  ]  │-NAV-│
  *│-FUNC-│  `  │  @  │  &  │     │ │     │  #  │  <  │  >  │ DEL │
  *╰──────┴─────┤     │_SYM_│ SFT │ │ SPC │ ESC │     ├─────┴─────╯
@@ -48,7 +48,31 @@
  * │      │     │     │     │     │ │     │     │     │     │     │
  * │_FUNC_│     │     │     │     │ │BTCLR│RESET│     │_!!!_│     │
  * ╰──────┴─────┤     │_SYM_│     │ │     │     │     ├─────┴─────╯
- *              ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
+ *              ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯ 
+ *
+ * GAMING BASE
+ * ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
+ * │ TAB │  Q  │  W  │  E  │  R  │ │  T  │  Y  │  U  │  I  │  O  │
+ * │-GNM-│  A  │  S  │  D  │  F  │ │  G  │  H  │  J  │  K  │  L  │
+ * │ SFT │  Z  │  X  │  C  │  V  │ │  B  │  N  │  M  │     │  P  │
+ * ╰─────┴─────┤ CTL │-GSM-│ SPC │ │NORML│     │     ├─────┴─────╯
+ *             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
+ *
+ * GAMING NUMBERS
+ * ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
+ * │ TAB │  4  │  5  │  6  │     │ │     │     │     │     │     │
+ * │_GNM_│  1  │  2  │  3  │     │ │     │     │     │     │     │
+ * │ SFT │  7  │  8  │  9  │  /  │ │     │     │     │     │     │
+ * ╰─────┴─────┤ CTL │     │ SPC │ │     │     │     ├─────┴─────╯
+ *             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
+ *
+ * GAMING SYMBOLS
+ * ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
+ * │ ESC │     │     │  T  │  Y  │ │     │     │     │     │     │
+ * │ F3  │     │     │  G  │  H  │ │     │     │     │     │     │
+ * │ SFT │     │  M  │  V  │  B  │ │     │     │     │     │     │
+ * ╰─────┴─────┤ CTL │_GSM_│ SPC │ │     │     │     ├─────┴─────╯
+ *             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
  *
  * COMBS
  * ╭──────────────╮     ╭──────────────╮
@@ -76,6 +100,9 @@
 #define FUNC 3
 #define NAV 4
 #define DANGER 5
+#define GAMING 6
+#define GNUM 7
+#define GSYM 8
 
 / {
 
@@ -94,15 +121,15 @@
         compatible = "zmk,combos";
         
         // W + F = TAB
-        combo_wf_delete {
-            layers = <0 1 2 3 4 5>;
+        combo_wf_tab {
+            layers = <0 1 2 3 4 5 6 7>;
             timeout-ms = <50>;
             key-positions = <1 2>;
             bindings = <&kp TAB>;
         };
 
         // X + C = DEL
-        combo_xc_tab {
+        combo_xc_delete {
             layers = <0 1 2 3 4 5>;
             timeout-ms = <50>;
             key-positions = <21 22>;
@@ -111,7 +138,7 @@
 
         // SYM + B = ALT
         combo_alt {
-            layers = <0 1 2 3 4 5>;
+            layers = <0 1 2 3 4 5 6 7>;
             timeout-ms = <50>;
             key-positions = <24 31>;
             bindings = <&sk LALT>;
@@ -127,7 +154,7 @@
 
         // U + Y = RETURN
         combo_uy_ret {
-            layers = <0 1 2 3 4 5>;
+            layers = <0 1 2 3 4 5 6 7>;
             timeout-ms = <50>;
             key-positions = <7 8>;
             bindings = <&kp RET>;
@@ -157,13 +184,13 @@
                 };
                 symbol_layer {
 // ╭──────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
-// │ ESC  │  \  │  %  │  $  │     │ │     │  ^  │  {  │  }  │ RET │
+// │ ESC  │  \  │  %  │  $  │GAMIN│ │     │  ^  │  {  │  }  │ RET │
 // │  *   │  (  │  )  │  :  │     │ │     │  '  │  [  │  ]  │-NAV-│
 // │-FUNC-│  `  │  @  │  &  │ ALT │ │     │  #  │  <  │  >  │ DEL │
 // ╰──────┴─────┤     │_SYM_│ SFT │ │ SPC │ ESC │     ├─────┴─────╯
 //              ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
                         bindings = <
-&kp ESC   &kp BSLH   &kp PRCNT  &kp DLLR  &none        &none     &kp CARET &kp LBRC &kp RBRC &kp RET
+&kp ESC   &kp BSLH   &kp PRCNT  &kp DLLR  &to GAMING   &none     &kp CARET &kp LBRC &kp RBRC &kp RET
 &kp STAR  &kp LPAR   &kp RPAR   &kp COLON &none        &none     &kp SQT   &kp LBKT &kp RBKT &lt NAV RET
 &mo FUNC  &kp GRAVE  &kp AT     &kp AMPS  &none        &none     &kp HASH  &kp LT   &kp GT   &kp DEL
                      &trans     &trans    &kp LSFT     &kp SPACE &kp ESC   &trans
@@ -225,6 +252,49 @@
 &none  &none &none &none  &none      &none      &none  &none &none  &none
 &trans &none &none &none  &none      &bt BT_CLR &reset &none &trans &none
              &none &trans &none      &none      &none  &none 
+                    >;
+                };
+                gaming_layer {
+                    label = "GAME";
+// ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
+// │ TAB │  Q  │  W  │  E  │  R  │ │  T  │  Y  │  U  │  I  │  O  │
+// │-GNM-│  A  │  S  │  D  │  F  │ │  G  │  H  │  J  │  K  │  L  │
+// │ SFT │  Z  │  X  │  C  │  V  │ │  B  │  N  │  M  │     │  P  │
+// ╰─────┴─────┤ CTL │-GSM-│ SPC │ │NORML│     │     ├─────┴─────╯
+//             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
+                    bindings = <
+&kp TAB  &kp Q  &kp W     &kp E     &kp R           &kp T      &kp Y   &kp U      &kp I    &kp O
+&mo GNUM &kp A  &kp S     &kp D     &kp F           &kp G      &kp H   &kp J      &kp K    &kp L
+&kp LSFT &kp Z  &kp X     &kp C     &kp V           &kp B      &kp N   &kp M      &none    &kp P
+                &kp LCTL  &mo GSYM  &kp SPACE       &to BASE   &none   &none
+                    >;
+                };
+                gaming_numbers {
+// ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
+// │ TAB │  4  │  5  │  6  │     │ │     │     │     │     │     │
+// │_GNM_│  1  │  2  │  3  │     │ │     │     │     │     │     │
+// │ SFT │  7  │  8  │  9  │  /  │ │     │     │     │     │     │
+// ╰─────┴─────┤ CTL │     │ SPC │ │     │     │     ├─────┴─────╯
+//             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
+                bindings = <
+&kp TAB  &kp N4  &kp N5    &kp N6   &none           &none  &none   &none   &none   &none
+&none    &kp N1  &kp N2    &kp N3   &none           &none  &none   &none   &none   &none
+&kp LSFT &kp N7  &kp N8    &kp N9   &kp FSLH        &none  &none   &none   &none   &none
+                 &kp LCTL  &none    &kp SPACE       &none  &none   &none
+                    >;
+                };
+                gaming_symbols {
+// ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
+// │ ESC │     │     │  T  │  Y  │ │     │     │     │     │     │
+// │ F3  │     │     │  G  │  H  │ │     │     │     │     │     │
+// │ SFT │     │  M  │  V  │  B  │ │     │     │     │     │     │
+// ╰─────┴─────┤ CTL │_GSM_│ SPC │ │     │     │     ├─────┴─────╯
+//             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
+                bindings = <
+&kp TAB  &kp N4  &kp N5    &kp T   &kp Y           &none  &none   &none   &none   &none
+&kp F3   &kp N1  &kp N2    &kp G   &Kp H           &none  &none   &none   &none   &none
+&kp LSFT &kp N7  &kp N8    &kp V   &kp B           &none  &none   &none   &none   &none
+                 &kp LCTL  &none   &kp SPACE       &none  &none   &none
                     >;
                 };
         };
