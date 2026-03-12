@@ -265,7 +265,7 @@
                     bindings = <
 &none  &none &none &none  &none      &none      &none  &none &none  &none
 &none  &none &none &none  &none      &none      &none  &none &none  &none
-&trans &none &none &none  &none      &bt BT_CLR &reset &none &trans &none
+&trans &none &none &none  &none      &bt BT_CLR &sys_reset &none &trans &none
              &none &trans &none      &none      &none  &none 
                     >;
                 };
