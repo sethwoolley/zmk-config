@@ -12,7 +12,7 @@
  *
  * SYMBOLS
  *╭──────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
- *│ ESC  │  \  │  %  │  $  │GAMIN│ │     │  ^  │  {  │  }  │ RET │
+ *│ ESC  │  \  │  %  │  $  │     │ │     │  ^  │  {  │  }  │ RET │
  *│  *   │  (  │  )  │  :  │     │ │     │  '  │  [  │  ]  │-NAV-│
  *│-FUNC-│  `  │  @  │  &  │     │ │     │  #  │  <  │  >  │ DEL │
  *╰──────┴─────┤     │_SYM_│ SFT │ │ SPC │ ESC │     ├─────┴─────╯
@@ -50,29 +50,6 @@
  * ╰──────┴─────┤     │_SYM_│     │ │     │     │     ├─────┴─────╯
  *              ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯ 
  *
- * GAMING BASE
- * ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
- * │ TAB │  Q  │  W  │  E  │  R  │ │  T  │  Y  │  U  │  I  │  O  │
- * │-GNM-│  A  │  S  │  D  │  F  │ │  G  │  H  │  J  │  K  │  L  │
- * │ SFT │  Z  │  X  │  C  │  V  │ │  B  │  N  │  M  │     │  P  │
- * ╰─────┴─────┤ CTL │-GSM-│ SPC │ │NORML│     │     ├─────┴─────╯
- *             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
- *
- * GAMING NUMBERS
- * ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
- * │ TAB │  4  │  5  │  6  │     │ │     │     │     │     │     │
- * │_GNM_│  1  │  2  │  3  │     │ │     │     │     │     │     │
- * │ SFT │  7  │  8  │  9  │  /  │ │     │     │     │     │     │
- * ╰─────┴─────┤ CTL │     │ SPC │ │     │     │     ├─────┴─────╯
- *             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
- *
- * GAMING SYMBOLS
- * ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
- * │ ESC │     │     │  T  │  Y  │ │     │     │     │     │     │
- * │ F3  │     │     │  G  │  H  │ │     │     │     │     │     │
- * │ SFT │     │  M  │  V  │  B  │ │     │     │     │     │     │
- * ╰─────┴─────┤ CTL │_GSM_│ SPC │ │     │     │     ├─────┴─────╯
- *             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
  *
  * COMBS
  * ╭──────────────╮     ╭──────────────╮
@@ -95,14 +72,11 @@
 #include <dt-bindings/zmk/outputs.h>
  
 #define BASE 0
-#define GAMING 1
-#define SYM 2
-#define NUM 3
-#define FUNC 4
-#define NAV 5
-#define DANGER 6
-#define GNUM 7
-#define GSYM 8
+#define SYM 1
+#define NUM 2
+#define FUNC 3
+#define NAV 4
+#define DANGER 5
 
 / {
 
@@ -182,30 +156,15 @@
               &sk LCTL  &mo SYM  &sk LSFT        &kp SPACE  &lt NUM BSPC  &kp DEL
                         >;
                 };
-                gaming_layer {
-                    label = "GAME";
-// ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
-// │ TAB │  Q  │  W  │  E  │  R  │ │  T  │  Y  │  U  │  I  │  O  │
-// │-GNM-│  A  │  S  │  D  │  F  │ │  G  │  H  │  J  │  K  │  L  │
-// │ SFT │  Z  │  X  │  C  │  V  │ │  B  │  N  │  M  │     │  P  │
-// ╰─────┴─────┤ CTL │-GSM-│ SPC │ │NORML│     │     ├─────┴─────╯
-//             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
-                    bindings = <
-&kp TAB  &kp Q  &kp W     &kp E     &kp R           &kp T      &kp Y   &kp U      &kp I    &kp O
-&mo GNUM &kp A  &kp S     &kp D     &kp F           &kp G      &kp H   &kp J      &kp K    &kp L
-&kp LSFT &kp Z  &kp X     &kp C     &kp V           &kp B      &kp N   &kp M      &none    &kp P
-                &kp LCTL  &mo GSYM  &kp SPACE       &to BASE   &none   &none
-                    >;
-                };
                 symbol_layer {
 // ╭──────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
-// │ ESC  │  \  │  %  │  $  │GAMIN│ │     │  ^  │  {  │  }  │ RET │
+// │ ESC  │  \  │  %  │  $  │     │ │     │  ^  │  {  │  }  │ RET │
 // │  *   │  (  │  )  │  :  │     │ │     │  '  │  [  │  ]  │-NAV-│
 // │-FUNC-│  `  │  @  │  &  │ ALT │ │     │  #  │  <  │  >  │ DEL │
 // ╰──────┴─────┤     │_SYM_│ SFT │ │ SPC │ ESC │     ├─────┴─────╯
 //              ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
                         bindings = <
-&kp ESC   &kp BSLH   &kp PRCNT  &kp DLLR  &to GAMING   &none     &kp CARET &kp LBRC &kp RBRC &kp RET
+&kp ESC   &kp BSLH   &kp PRCNT  &kp DLLR  &none        &none     &kp CARET &kp LBRC &kp RBRC &kp RET
 &kp STAR  &kp LPAR   &kp RPAR   &kp COLON &none        &none     &kp SQT   &kp LBKT &kp RBKT &lt NAV RET
 &mo FUNC  &kp GRAVE  &kp AT     &kp AMPS  &none        &none     &kp HASH  &kp LT   &kp GT   &kp DEL
                      &trans     &trans    &kp LSFT     &kp SPACE &kp ESC   &trans
@@ -267,34 +226,6 @@
 &none  &none &none &none  &none      &none      &none  &none &none  &none
 &trans &none &none &none  &none      &bt BT_CLR &sys_reset &none &trans &none
              &none &trans &none      &none      &none  &none 
-                    >;
-                };
-                gaming_numbers {
-// ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
-// │ TAB │  4  │  5  │  6  │     │ │     │     │     │     │     │
-// │_GNM_│  1  │  2  │  3  │     │ │     │     │     │     │     │
-// │ SFT │  7  │  8  │  9  │  /  │ │     │     │     │     │     │
-// ╰─────┴─────┤ CTL │     │ SPC │ │     │     │     ├─────┴─────╯
-//             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
-                bindings = <
-&kp TAB  &kp N4  &kp N5    &kp N6   &none           &none  &none   &none   &none   &none
-&none    &kp N1  &kp N2    &kp N3   &none           &none  &none   &none   &none   &none
-&kp LSFT &kp N7  &kp N8    &kp N9   &kp FSLH        &none  &none   &none   &none   &none
-                 &kp LCTL  &none    &kp SPACE       &none  &none   &none
-                    >;
-                };
-                gaming_symbols {
-// ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
-// │ ESC │     │     │  T  │  Y  │ │     │     │     │     │     │
-// │ F3  │     │     │  G  │  H  │ │     │     │     │     │     │
-// │ SFT │     │  M  │  V  │  B  │ │     │     │     │     │     │
-// ╰─────┴─────┤ CTL │_GSM_│ SPC │ │     │     │     ├─────┴─────╯
-//             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
-                bindings = <
-&kp TAB  &kp N4  &kp N5    &kp T   &kp Y           &none  &none   &none   &none   &none
-&kp F3   &kp N1  &kp N2    &kp G   &kp H           &none  &none   &none   &none   &none
-&kp LSFT &kp N7  &kp N8    &kp V   &kp B           &none  &none   &none   &none   &none
-                 &kp LCTL  &none   &kp SPACE       &none  &none   &none
                     >;
                 };
         };
