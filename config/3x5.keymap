@@ -1,56 +1,9 @@
 /*
  * Seth's Corne-ish Zen config
- * Uses a modified version of [the Pnohty layout](https://github.com/rayduck/pnohty).
- *
- * BASE
- * ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬────────┬─────┬─────┬─────╮
- * │  Q  │  W  │  F  │  P  │  G  │ │  J  │   L    │  U  │  Y  │  ;  │
- * │  A  │  R  │  S  │  T  │  D  │ │  H  │   N    │  E  │  I  │  O  │
- * │  Z  │  X  │  C  │  V  │  B  │ │  K  │   M    │  ,  │  .  │  /  │
- * ╰─────┴─────┤ CTL │-SYM-│ SFT │ │ SPC │NUM/BKSP│ DEL ├─────┴─────╯
- *             ╰─────┴─────┴─────╯ ╰─────┴────────┴─────╯
- *
- * SYMBOLS
- *╭──────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
- *│ ESC  │  \  │  %  │  $  │     │ │     │  ^  │  {  │  }  │ RET │
- *│  *   │  (  │  )  │  :  │     │ │     │  '  │  [  │  ]  │-NAV-│
- *│-FUNC-│  `  │  @  │  &  │     │ │     │  #  │  <  │  >  │ DEL │
- *╰──────┴─────┤     │_SYM_│ SFT │ │ SPC │ ESC │     ├─────┴─────╯
- *             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
- *
- * NUMBERS
- * ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
- * │ ESC │  4  │  5  │  6  │     │ │     │  │  │  -  │  /  │     │
- * │  '  │  1  │  2  │  3  │     │ │     │  "  │  _  │  =  │-NAV-│
- * │  ~  │  7  │  8  │  9  │     │ │     │  +  │  ?  │  !  │ DEL │
- * ╰─────┴─────┤  .  │  0  │ SFT │ │ SPC │_NUM_│     ├─────┴─────╯
- *             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
- *
- * FUNCTION
- * ╭──────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
- * │      │ F 6 │ F 5 │ F 4 │ F10 │ │ BT0 │ BT1 │ USB │ BLE │     │
- * │ CAPSL│ F 3 │ F 2 │ F 1 │ F11 │ │VMUTE│VOLDN│VOLUP│BRIDN│BRIUP│
- * │_FUNC_│ F 9 │ F 8 │ F 7 │ F12 │ │     │     │SLEEP│-!!!-│     │
- * ╰──────┴─────┤     │_SYM_│ SFT │ │ SPC │     │ CMD ├─────┴─────╯
- *              ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
- *
- * NAVIGATION
- * ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
- * │     │     │     │     │     │ │ DOW │RIGHT│     │     │     │
- * │ SFT │ CTL │ GUI │ ALT │     │ │ LFT │ DWN │ U P │RIGHT│_NAV_│
- * │     │     │     │     │     │ │ U P │PG_DN│PG_UP│ END │     │
- * ╰─────┴─────┤     │_SYM_│ SFT │ │ SPC │     │ CMD ├─────┴─────╯
- *             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
-
- * DANGER
- * ╭──────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
- * │      │     │     │     │     │ │     │     │     │     │     │
- * │      │     │     │     │     │ │     │     │     │     │     │
- * │_FUNC_│     │     │     │     │ │BTCLR│RESET│     │_!!!_│     │
- * ╰──────┴─────┤     │_SYM_│     │ │     │     │     ├─────┴─────╯
- *              ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯ 
- *
- *
+ * Things to remember:
+ * 1) Nav layer can be accessed by xc combo, or with third thumb key on right hand
+ * 2) Can roll NUM+GUI keys to be able to hit GUI+NUMBER for desktop switching etc
+ * 
  * COMBS
  * ╭──────────────╮     ╭──────────────╮
  * │ 0  1  2  3  4│     │ 5  6  7  8  9│
@@ -107,7 +60,7 @@
             layers = <0 1 2 3 4 5>;
             timeout-ms = <50>;
             key-positions = <21 22>;
-            bindings = <&kp DEL>;
+            bindings = <&lt NAV DEL>;
         };
 
         // SYM + B = ALT
@@ -143,73 +96,73 @@
                 compatible = "zmk,keymap";
                 colemak_layer {
                     label = "BASE";
-//  ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬────────┬─────┬─────┬─────╮
-//  │  Q  │  W  │  F  │  P  │  G  │ │  J  │   L    │  U  │  Y  │  ;  │
-//  │  A  │  R  │  S  │  T  │  D  │ │  H  │   N    │  E  │  I  │  O  │
-//  │  Z  │  X  │  C  │  V  │  B  │ │  K  │   M    │  ,  │  .  │  /  │
-//  ╰─────┴─────┤ CTL │-SYM-│ SFT │ │ SPC │NUM/BKSP│ ALT ├─────┴─────╯
-//              ╰─────┴─────┴─────╯ ╰─────┴────────┴─────╯
+//  ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬────────┬───────┬─────┬─────╮
+//  │  Q  │  W  │  F  │  P  │  G  │ │  J  │   L    │   U   │  Y  │  ;  │
+//  │  A  │  R  │  S  │  T  │  D  │ │  H  │   N    │   E   │  I  │  O  │
+//  │  Z  │  X  │  C  │  V  │  B  │ │  K  │   M    │   ,   │  .  │  /  │
+//  ╰─────┴─────┤ CTL │-SYM-│ SFT │ │ SPC │NUM/BKSP│DEL/NAV├─────┴─────╯
+//              ╰─────┴─────┴─────╯ ╰─────┴────────┴───────╯
                         bindings = <
 &kp Q  &kp W  &kp F     &kp P    &kp G           &kp J      &kp L         &kp U      &kp Y    &kp SEMI
 &kp A  &kp R  &kp S     &kp T    &kp D           &kp H      &kp N         &kp E      &kp I    &kp O
 &kp Z  &kp X  &kp C     &kp V    &kp B           &kp K      &kp M         &kp COMMA  &kp DOT  &kp FSLH
-              &sk LCTL  &mo SYM  &sk LSFT        &kp SPACE  &lt NUM BSPC  &kp DEL
+              &sk LCTL  &mo SYM  &sk LSFT        &kp SPACE  &lt NUM BSPC  &lt NAV DEL
                         >;
                 };
                 symbol_layer {
 // ╭──────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
-// │ ESC  │  \  │  %  │  $  │     │ │     │  ^  │  {  │  }  │ RET │
-// │  *   │  (  │  )  │  :  │     │ │     │  '  │  [  │  ]  │-NAV-│
-// │-FUNC-│  `  │  @  │  &  │ ALT │ │     │  #  │  <  │  >  │ DEL │
-// ╰──────┴─────┤     │_SYM_│ SFT │ │ SPC │ ESC │     ├─────┴─────╯
+// │ ESC  │  \  │  %  │  $  │     │ │     │  ^  │  {  │  }  │     │
+// │  *   │  (  │  )  │  :  │     │ │     │  '  │  [  │  ]  │     │
+// │-FUNC-│  `  │  @  │  &  │     │ │     │  #  │  <  │  >  │     │
+// ╰──────┴─────┤     │_SYM_│ SFT │ │ SPC │ BKSP│ DEL ├─────┴─────╯
 //              ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
                         bindings = <
-&kp ESC   &kp BSLH   &kp PRCNT  &kp DLLR  &none        &none     &kp CARET &kp LBRC &kp RBRC &kp RET
-&kp STAR  &kp LPAR   &kp RPAR   &kp COLON &none        &none     &kp SQT   &kp LBKT &kp RBKT &lt NAV RET
-&mo FUNC  &kp GRAVE  &kp AT     &kp AMPS  &none        &none     &kp HASH  &kp LT   &kp GT   &kp DEL
-                     &trans     &trans    &kp LSFT     &kp SPACE &kp ESC   &trans
+&kp ESC   &kp BSLH   &kp PRCNT  &kp DLLR  &none        &none     &kp CARET &kp LBRC &kp RBRC &none
+&kp STAR  &kp LPAR   &kp RPAR   &kp COLON &none        &none     &kp SQT   &kp LBKT &kp RBKT &none
+&mo FUNC  &kp GRAVE  &kp AT     &kp AMPS  &none        &none     &kp HASH  &kp LT   &kp GT   &none
+                     &trans     &trans    &kp LSFT     &kp SPACE &kp BSPC  &kp DEL
                         >;
                 };
                 number_layer {
 // ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
 // │ ESC │  4  │  5  │  6  │     │ │     │  |  │  -  │  /  │     │
-// │  '  │  1  │  2  │  3  │     │ │     │  "  │  _  │  =  │-NAV-│
-// │  ~  │  7  │  8  │  9  │     │ │ GUI │  +  │  ?  │  !  │ DEL │
+// │  '  │  1  │  2  │  3  │     │ │     │  "  │  _  │  =  │     │
+// │  ~  │  7  │  8  │  9  │     │ │ GUI │  +  │  ?  │  !  │     │
 // ╰─────┴─────┤  .  │  0  │ SFT │ │ SPC │_NUM_│     ├─────┴─────╯
 //             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
                         bindings = <
 &kp ESC    &kp N4  &kp N5  &kp N6 &none         &none      &kp PIPE  &kp MINUS  &kp FSLH    &none
-&kp SQT    &kp N1  &kp N2  &kp N3 &none         &none      &kp DQT   &kp UNDER  &kp EQUAL   &mo NAV
-&kp TILDE  &kp N7  &kp N8  &kp N9 &none         &none      &kp PLUS  &kp QMARK  &kp EXCL    &kp DEL
+&kp SQT    &kp N1  &kp N2  &kp N3 &none         &none      &kp DQT   &kp UNDER  &kp EQUAL   &none
+&kp TILDE  &kp N7  &kp N8  &kp N9 &none         &sk LGUI   &kp PLUS  &kp QMARK  &kp EXCL    &none
                    &kp DOT &kp N0 &kp LSFT      &kp SPACE  &trans    &trans
                         >;
                 };
                 FUNC_layer {
 // ╭──────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮ 
-// │      │ F 6 │ F 5 │ F 4 │ F10 │ │ BT0 │ BT1 │ USB │ BLE │     │ 
-// │ CAPSL│ F 3 │ F 2 │ F 1 │ F11 │ │VMUTE│VOLDN│VOLUP│BRIDN│BRIUP│ 
-// │_FUNC_│ F 9 │ F 8 │ F 7 │ F12 │ │     │     │SLEEP│-!!!-│     │ 
+// │      │ F 4 │ F 5 │ F 6 │ F12 │ │ BT0 │ BT1 │ USB │ BLE │     │ 
+// │ CAPSL│ F 1 │ F 2 │ F 1 │ F11 │ │VMUTE│VOLDN│VOLUP│BRIDN│BRIUP│ 
+// │_FUNC_│ F 7 │ F 8 │ F 9 │ F10 │ │     │     │SLEEP│-!!!-│     │ 
 // ╰──────┴─────┤     │_SYM_│ SFT │ │ SPC │     │ CMD ├─────┴─────╯ 
-//              ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯ 
+//              ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
                         bindings = <
-&none    &kp F6  &kp F5  &kp F4  &kp F10         &bt BT_SEL 0 &bt BT_SEL 1  &out OUT_USB  &out OUT_BLE  &none
-&kp CAPS &kp F3  &kp F2  &kp F1  &kp F11         &kp K_MUTE   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_BRI_DN  &kp C_BRI_UP
-&trans   &kp F9  &kp F8  &kp F7  &kp F12         &none        &none         &none         &mo DANGER    &trans
+&none    &kp F4  &kp F5  &kp F6  &kp F12         &bt BT_SEL 0 &bt BT_SEL 1  &out OUT_USB  &out OUT_BLE  &none
+&kp CAPS &kp F1  &kp F2  &kp F3  &kp F11         &kp K_MUTE   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_BRI_DN  &kp C_BRI_UP
+&trans   &kp F7  &kp F8  &kp F9  &kp F10         &none        &none         &none         &mo DANGER    &trans
                  &trans  &trans  &kp LSFT        &trans       &trans        &trans 
                         >;
                 };
                 nav_layer {
 // ╭─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────╮
 // │     │     │     │     │     │ │ DOW │RIGHT│     │     │     │
-// │ SFT │ CTL │ GUI │ ALT │     │ │ LFT │ DWN │ U P │RIGHT│_NAV_│
-// │     │     │     │     │     │ │ U P │PG_DN│PG_UP│ END │     │
-// ╰─────┴─────┤     │_SYM_│ SFT │ │ SPC │     │ CMD ├─────┴─────╯
+// │ SFT │ CTL │ GUI │ ALT │     │ │ LFT │HOME │PGUP │PGDN │ END │
+// │     │   _NAV_   │     │     │ │ U P │     │     │     │     │
+// ╰─────┴─────┤ CTL │ GUI │ SFT │ │ SPC │     │_NAV_├─────┴─────╯
 //             ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
                         bindings = <
 &none     &none     &none     &none     &none         &kp DOWN   &kp RIGHT  &none      &none      &none
-&sk LSFT  &sk LCTL  &sk LALT  &sk LGUI  &none         &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
-&none     &none     &none     &none     &none         &kp UP     &kp PG_DN  &kp PG_UP  &kp END    &none
-                    &none     &none     &kp LSFT      &kp SPACE  &none      &none
+&sk LSFT  &sk LCTL  &sk LALT  &sk LGUI  &none         &kp LEFT   &kp HOME   &kp PG_UP  &kp PG_DN  &kp END
+&none     &none     &none     &none     &none         &kp UP     &none      &none      &none      &none
+                    &sk LCTL  &sk LGUI  &sk LSFT      &kp SPACE  &none      &none
                         >;
                 };
                 danger_layer {
