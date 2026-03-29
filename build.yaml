@@ -19,10 +19,27 @@
 #
 ---
 include:
+  # Dongle
+  - board: seeeduino_xiao_ble
+    shield: corneish_zen_dongle
+    # snippet: studio-rpc-usb-uart
+    # cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact_name: corneish_zen_xiao_dongle
+
+  # Left
   - board: corneish_zen_v2_left
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_CUSTOM_WIDGET_LAYER_STATUS=n -DCONFIG_CUSTOM_WIDGET_OUTPUT_STATUS=n -DCONFIG_CUSTOM_WIDGET_PERIPHERAL_STATUS=y -DCONFIG_ZMK_WIDGET_PERIPHERAL_STATUS=n
+
+    artifact_name: corneish_zen_left
+
+  # Right
   - board: corneish_zen_v2_right
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    artifact_name: corneish_zen_right
 
   # Reset firmwares
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
   - board: corneish_zen_v2_left
     shield: settings_reset
   - board: corneish_zen_v2_right
